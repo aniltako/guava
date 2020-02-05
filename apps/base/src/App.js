@@ -4,7 +4,7 @@ import React from 'react';
 class App extends React.Component {
 
   componentDidMount() {
-    console.log(AUTH0_DOMAIN)
+    console.log(process.env.AUTH0_DOMAIN)
     // console.log(Auth);
   }
 

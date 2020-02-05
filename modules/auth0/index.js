@@ -1,5 +1,5 @@
-import { AuthInstance } from './Auth';
+import AuthInstance from './auth';
 
 export {
-  AuthInstance as auth
+  AuthInstance as AuthInstance
 }

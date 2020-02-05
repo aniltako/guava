@@ -1,14 +1,14 @@
-import auth0 from 'auth0';
+import auth0 from 'auth0-js';
 
 class Auth {
   auth;
   constructor(){
     this.auth = new auth0.WebAuth({
-      domain: ``,
-      clientID: ``,
-      redirectUri: ``,
-      responseType: '',
-      scope: '',
+      domain: `tako-anil.auth0.com`,
+      clientID: `GF26kSOndQYBv3W8svfIE0VDp24q249O`,
+      redirectUri: `http://localhost:3001/callback`,
+      responseType: `token id_token`,
+      scope: `openid profile`,
       audience: ``
     });
   }

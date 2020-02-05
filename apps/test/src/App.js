@@ -1,18 +1,26 @@
 import React from 'react';
-// import { Auth } from '@guava/auth0-js';
+import { AuthInstance } from '@guava/auth0-js';
+import { Route, BrowserRouter as Router, Link, Switch } from 'react-router-dom'
+import Auth from './component/auth';
+import Axios from './component/axios';
 
-class App extends React.Component {
-
-  componentDidMount() {
-    console.log(AUTH0_DOMAIN)
-    // console.log(Auth);
-  }
-
-  render() {
-    return (
-      <div>Guava Test!</div>
-    )
-  }
+const App = () => {
+  return (
+    <Router>
+      <ul>
+        <li>
+          <Link to="/auth">Auth</Link>
+        </li>
+        <li>
+          <Link to="/axios">Axios</Link>
+        </li>
+      </ul>
+      <Switch>
+        <Route extact path="/auth" component={Auth} />
+        <Route extact path="/axios" component={Axios} />
+      </Switch>
+    </Router>
+  )
 }
 
 export default App;

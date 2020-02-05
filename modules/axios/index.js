@@ -1,4 +1,4 @@
-import { axios, asyncFunction} from './Auth';
+import { axios, asyncFunction} from './axios';
 
 export {
   axios as Axios,

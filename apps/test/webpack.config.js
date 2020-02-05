@@ -1,17 +1,26 @@
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: [ '@babel/preset-env', '@babel/preset-react' ],
+            plugins: [
+              [
+                '@babel/plugin-proposal-class-properties',
+                {
+                  'loose': true
+                }
+              ]
+            ]
           }
         }
       }
@@ -30,5 +39,20 @@ module.exports = {
       AUTH0_SCOPE: JSON.stringify('scope'),
       AUTH0_AUDIENCE: JSON.stringify('audience')
     })
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true,
+    open: true,
+    inline: true,
+    watchContentBase: true,
+    port: 3001
+  },
+  node: {
+    tls: 'empty',
+    net: 'empty',
+    fs: 'empty',
+    dns: 'empty'
+  }
 };
