@@ -4,11 +4,11 @@ class Auth {
   auth;
   constructor(){
     this.auth = new auth0.WebAuth({
-      domain: `tako-anil.auth0.com`,
-      clientID: `GF26kSOndQYBv3W8svfIE0VDp24q249O`,
-      redirectUri: `http://localhost:3001/callback`,
-      responseType: `token id_token`,
-      scope: `openid profile`,
+      domain: process.env.AUTH0_DOMAIN,
+      clientID: process.env.AUTH0_CLIENT_ID,
+      redirectUri: process.env.AUTH0_REDIRECT_URI,
+      responseType: process.env.AUTH0_RESPONSE_TYPE,
+      scope: process.env.AUTH0_SCOPE,
       audience: ``
     });
   }

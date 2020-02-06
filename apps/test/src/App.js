@@ -1,5 +1,4 @@
 import React from 'react';
-import { AuthInstance } from '@guava/auth0-js';
 import { Route, BrowserRouter as Router, Link, Switch } from 'react-router-dom'
 import Auth from './component/auth';
 import Axios from './component/axios';

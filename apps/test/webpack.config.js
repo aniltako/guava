@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const Dotenv = require('dotenv-webpack'); 
 
 module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
@@ -31,13 +31,9 @@ module.exports = {
       template: 'public/index.html',
       title: 'Guava'
     }),
-    new webpack.DefinePlugin({
-      AUTH0_DOMAIN: JSON.stringify('domain'),
-      AUTH0_CLIENT_ID: JSON.stringify('client_id'),
-      AUTH0_REDIRECT_URI: JSON.stringify('redirect_uri'),
-      AUTH0_TYPE: JSON.stringify('type'),
-      AUTH0_SCOPE: JSON.stringify('scope'),
-      AUTH0_AUDIENCE: JSON.stringify('audience')
+    new Dotenv({
+      path: './.env',
+      safe: true
     })
   ],
   devServer: {
